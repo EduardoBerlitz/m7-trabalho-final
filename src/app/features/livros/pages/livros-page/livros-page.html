@@ -1,0 +1,63 @@
+<main class="container">
+  <header class="cabecalho">
+    <h1>Catálogo de Livros</h1>
+    <button type="button" (click)="alternarFormulario()">
+      {{ exibindoFormulario() ? "Cancelar" : "Cadastrar livro" }}
+    </button>
+  </header>
+
+  @if (exibindoFormulario()) {
+    <form class="formulario" (submit)="cadastrarLivro($event)">
+      <label>
+        Título
+        <input name="titulo" required />
+      </label>
+
+      <label>
+        Autor
+        <input name="autor" required />
+      </label>
+
+      <label>
+        Categoria
+        <input name="categoria" />
+      </label>
+
+      <label>
+        Ano
+        <input name="ano" required />
+      </label>
+
+      <label>
+        Status
+        <select name="status" required>
+          <option value="disponivel" selected>Disponível</option>
+          <option value="emprestado">Emprestado</option>
+          <option value="esgotado">Esgotado</option>
+        </select>
+      </label>
+
+      <label>
+        Descrição
+        <textarea name="descricao" rows="4" required></textarea>
+      </label>
+
+      <button type="submit" [disabled]="cadastrando()">
+        {{ cadastrando() ? "Salvando..." : "Salvar livro" }}
+      </button>
+    </form>
+  }
+
+  <app-filtro-livros
+    [pesquisa]="pesquisa()"
+    [status]="filtroStatus()"
+    (pesquisaChange)="atualizarPesquisa($event)"
+    (statusChange)="atualizarStatus($event)"
+  />
+
+  <app-lista-livros
+    [livros]="livrosFiltrados()"
+    [carregando]="carregando()"
+    [erro]="erro()"
+  />
+</main>

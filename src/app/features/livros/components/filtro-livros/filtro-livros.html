@@ -1,0 +1,18 @@
+<section class="filtros">
+  <input
+    type="search"
+    placeholder="Pesquisar livro"
+    [value]="pesquisa()"
+    (input)="alterarPesquisa($event)"
+  />
+
+  <select
+    [value]="status()"
+    (change)="alterarStatus($event)"
+  >
+    <option value="todos">Todos</option>
+    <option value="disponivel">Disponível</option>
+    <option value="emprestado">Emprestado</option>
+    <option value="esgotado">Esgotado</option>
+  </select>
+</section>
