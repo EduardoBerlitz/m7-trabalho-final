@@ -24,11 +24,11 @@ export class LivrosService {
   private readonly http =
     inject(HttpClient);
 
-  private readonly apiUrl =
-    "http://localhost:3000/api/livros";
-
   //private readonly apiUrl =
-    //"https://m7-a7-chamados-api-yhk1.onrender.com/api/chamados/";
+    //"http://localhost:3000/api/livros";
+
+  private readonly apiUrl =
+    "https://m7-trabalho-final-api-7gp2.onrender.com/api/livros/";
     
   // métodos serão adicionados aqui
 
