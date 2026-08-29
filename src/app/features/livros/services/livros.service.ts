@@ -28,7 +28,7 @@ export class LivrosService {
     //"http://localhost:3000/api/livros";
 
   private readonly apiUrl =
-    "https://m7-trabalho-final-api-7gp2.onrender.com/api/livros/";
+    "https://m7-trabalho-final-api-7gp2.onrender.com/api/livros";
     
   // métodos serão adicionados aqui
 
